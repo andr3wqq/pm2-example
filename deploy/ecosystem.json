@@ -1,0 +1,38 @@
+{
+  "apps": [
+    {
+      "name": "APP",
+      "cwd": "/var/www/pm2example/",
+      "script": "app.js",
+      "out_file": "/home/andrew/log/pm2-epc-staging-api.log",
+      "error_file": "/home/andrew/log/pm2-epc-staging-api-err.log",
+      "env": {
+        "COMMON_VARIABLE": "true"
+      },
+      "env_production": {
+        "NODE_ENV": "production"
+      }
+    }
+  ],
+  "deploy": {
+    "production": {
+      "user": "node",
+      "host": "192.168.111.126",
+      "ref": "origin/master",
+      "repo": "git@github.com:andr3wqq/pm2-example.git",
+      "path": "/var/www/pm2example",
+      "post-deploy": "npm install && pm2 startOrRestart ecosystem.json --env production"
+    },
+    "development": {
+      "user": "node",
+      "host": "192.168.111.126",
+      "ref": "origin/develop",
+      "repo": "git@github.com:andr3wqq/pm2-example.git",
+      "path": "/var/www/pm2example",
+      "post-deploy": "npm install && pm2 startOrRestart ecosystem.json --env development",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  }
+}
