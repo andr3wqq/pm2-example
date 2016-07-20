@@ -2,7 +2,7 @@
   "apps": [
     {
       "name": "APP",
-      "cwd": "/var/www/pm2example/",
+      "cwd": "/var/www/pm2example/source/",
       "script": "app.js",
       "out_file": "/home/andrew/log/pm2-example-app.log",
       "error_file": "/home/andrew/log/pm2-example-app-err.log",
