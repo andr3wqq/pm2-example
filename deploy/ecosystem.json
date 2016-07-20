@@ -29,7 +29,7 @@
       "ref": "origin/develop",
       "repo": "https://github.com/andr3wqq/pm2-example.git",
       "path": "/var/www/pm2example",
-      "post-deploy": "sh /deploy/post-deploy.sh && pm2 startOrRestart /deploy/ecosystem.json --env development",
+      "post-deploy": "sh /source/deploy/post-deploy.sh && pm2 startOrRestart /deploy/ecosystem.json --env development",
       "env": {
         "NODE_ENV": "development"
       }
