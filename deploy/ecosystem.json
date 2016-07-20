@@ -2,7 +2,7 @@
   "apps": [
     {
       "name": "APP",
-      "cwd": "/var/www/pm2example/source/",
+      "cwd": "/var/www/pm2example/source",
       "script": "app.js",
       "out_file": "/home/andrew/log/pm2-example-app.log",
       "error_file": "/home/andrew/log/pm2-example-app-err.log",
@@ -18,10 +18,11 @@
     "production": {
       "user": "andrew",
       "host": "192.168.111.126",
+      "key": "/home/andrew/.ssh/pm2_local.pub",
       "ref": "origin/master",
-      "repo": "https://github.com/andr3wqq/pm2-example.git",
+      "repo": "git@github.com:andr3wqq/pm2-example.git",
       "path": "/var/www/pm2example",
-      "post-deploy": "npm install && pm2 startOrRestart /deploy/ecosystem.json --env production"
+      "post-deploy": "ls -l && npm install && pm2 startOrRestart deploy/ecosystem.json --env production"
     },
     "development": {
       "user": "andrew",
@@ -29,7 +30,7 @@
       "ref": "origin/develop",
       "repo": "https://github.com/andr3wqq/pm2-example.git",
       "path": "/var/www/pm2example",
-      "post-deploy": "sh /source/deploy/post-deploy.sh && pm2 startOrRestart /deploy/ecosystem.json --env development",
+      "post-deploy": "sh deploy/post-deploy.sh && pm2 startOrRestart deploy/ecosystem.json --env development",
       "env": {
         "NODE_ENV": "development"
       }
