@@ -22,7 +22,7 @@
       "ref": "origin/master",
       "repo": "git@github.com:andr3wqq/pm2-example.git",
       "path": "/var/www/pm2example",
-      "post-deploy": "ls -l && npm install && pm2 startOrRestart deploy/ecosystem.json --env production"
+      "post-deploy": "npm install && pm2 startOrRestart deploy/ecosystem.json --env production"
     },
     "development": {
       "user": "andrew",
